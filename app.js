@@ -23,7 +23,7 @@
     async function fetchBooksFromAPI() {
         const { maxResultsPerPage, currentPageStartIndex, searchQuery } =
             applicationState;
-        const url = `https://www.googleapis.com/books/v1/volumes?maxResults=${maxResultsPerPage}&startIndex=${currentPageStartIndex}&q=${searchQuery}`;
+        const url = `https://www.googleapis.com/books/v1/volumes?maxResults=${maxResultsPerPage}&startIndex=${currentPageStartIndex}&q=${encodeURIComponent(searchQuery)}`;
 
         try {
             const response = await fetch(url);
